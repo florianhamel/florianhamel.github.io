@@ -14,8 +14,9 @@ class	Star
 		this.speedX = 0;
 		this.speedY = 0;
 		this.random_velxy();
-		this.color = 'rgba(255, 255, 255, 0.7)';
-		this.random_color();
+		this.color_arc = 'rgba(255, 255, 255, 0.7)';
+		this.random_color_arc();
+		this.color_lines = 'rgb(255, 255, 255)';
 		this.radius = 1;
 		// this.random_radius();
 	}
@@ -23,21 +24,22 @@ class	Star
 	draw()
 	{
 		ctx.beginPath();
-		ctx.fillStyle = this.color;
+		ctx.fillStyle = this.color_arc;
 		ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
 		ctx.fill();
 	}
 
 	draw_lines(stars)
 	{
+		this.random_color_lines();
 		for (let i = 0; i < nb_stars; i++)
 		{
 			var len = Math.sqrt(Math.pow(this.x - stars[i].x, 2) + Math.pow(this.y - stars[i].y, 2));
 			if (len < 200)
 			{
 				ctx.beginPath();
-				var opacity = 0.3 - ((0.3 / 201) * (len + 1));
-				ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+				ctx.strokeStyle = this.color_lines;
+				// ctx.opacity = 0.3 - ((0.3 / 201) * (len + 1));
 				ctx.moveTo(this.x, this.y);
 				ctx.lineTo(stars[i].x, stars[i].y);
 				ctx.stroke();
@@ -135,12 +137,18 @@ class	Star
 		}
 	}
 
-	random_color()
+	random_color_arc()
 	{
-		this.color = 'rgba(' + Math.floor(Math.random() * 255) + ',' +
+		this.color_arc = 'rgba(' + Math.floor(Math.random() * 255) + ',' +
 		Math.floor(Math.random() * 255) + ',' +
+		Math.floor(Math.random() * 255) + ',' + '0.7)';
+	}
+
+	random_color_lines()
+	{
+		this.color_lines = 'rgba(' + Math.floor(Math.random() * 255) + ',' +
 		Math.floor(Math.random() * 255) + ',' +
-		(Math.random() * (1 - 0.2) + 0.2) + ')';
+		Math.floor(Math.random() * 255) + ')';	
 	}
 
 	random_radius()
