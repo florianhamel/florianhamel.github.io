@@ -2,7 +2,7 @@ var		canvas = document.querySelector('canvas');
 var		ctx = canvas.getContext('2d');
 var		width = canvas.width = window.innerWidth;
 var		height = canvas.height = window.innerHeight;
-var		nb_stars = 200;
+var		nb_stars = 50;
 
 class	Star
 {
@@ -14,8 +14,8 @@ class	Star
 		this.speedX = 0;
 		this.speedY = 0;
 		this.random_velxy();
-		this.color = 'rgba(255, 255, 255, 0.5)';
-		// this.random_color();
+		this.color = 'rgba(255, 255, 255, 0.7)';
+		this.random_color();
 		this.radius = 1;
 		// this.random_radius();
 	}
@@ -36,8 +36,7 @@ class	Star
 			if (len < 200)
 			{
 				ctx.beginPath();
-				var opacity = 1 - ((0.9 / 201) * (len + 1));
-				// console.log(opacity);
+				var opacity = 0.3 - ((0.3 / 201) * (len + 1));
 				ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
 				ctx.moveTo(this.x, this.y);
 				ctx.lineTo(stars[i].x, stars[i].y);
@@ -156,6 +155,8 @@ for (let i = 0; i < nb_stars; i++)
 
 function loop()
 {
+	width = canvas.width = window.innerWidth - 20;
+	height = canvas.height = window.innerHeight - 20;
 	ctx.fillStyle = 'rgb(42, 42, 42)';
 	ctx.fillRect(0, 0, width, height);
 	for (let i = 0; i < nb_stars; i++)
