@@ -37,9 +37,9 @@ class	Star
 			var len = Math.sqrt(Math.pow(this.x - stars[i].x, 2) + Math.pow(this.y - stars[i].y, 2));
 			if (len < 200)
 			{
+				var opacity = 1 - ((1 / 201) * (len + 1));
 				ctx.beginPath();
-				ctx.strokeStyle = this.color_lines;
-				// ctx.opacity = 0.3 - ((0.3 / 201) * (len + 1));
+				ctx.strokeStyle = this.color_lines + opacity + ')';
 				ctx.moveTo(this.x, this.y);
 				ctx.lineTo(stars[i].x, stars[i].y);
 				ctx.stroke();
@@ -148,7 +148,7 @@ class	Star
 	{
 		this.color_lines = 'rgba(' + Math.floor(Math.random() * 255) + ',' +
 		Math.floor(Math.random() * 255) + ',' +
-		Math.floor(Math.random() * 255) + ')';	
+		Math.floor(Math.random() * 255) + ',';
 	}
 
 	random_radius()
