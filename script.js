@@ -15,8 +15,8 @@ class	Star
 		this.speedY = 0;
 		this.random_velxy();
 		this.color_arc = 'rgba(255, 255, 255, 0.7)';
-		this.random_color_arc();
-		this.color_lines = 'rgb(255, 255, 255)';
+		// this.random_color_arc();
+		this.color_lines = 'rgb(255, 255, 255, ';
 		this.radius = 1;
 		// this.random_radius();
 	}
@@ -31,7 +31,7 @@ class	Star
 
 	draw_lines(stars)
 	{
-		this.random_color_lines();
+		// this.random_color_lines();
 		for (let i = 0; i < nb_stars; i++)
 		{
 			var len = Math.sqrt(Math.pow(this.x - stars[i].x, 2) + Math.pow(this.y - stars[i].y, 2));
@@ -163,9 +163,9 @@ for (let i = 0; i < nb_stars; i++)
 
 function loop()
 {
-	width = canvas.width = window.innerWidth - 20;
-	height = canvas.height = window.innerHeight - 20;
-	ctx.fillStyle = 'rgb(42, 42, 42)';
+	width = canvas.width = window.innerWidth;
+	height = canvas.height = window.innerHeight;
+	ctx.fillStyle = 'rgb(0, 10, 42)';
 	ctx.fillRect(0, 0, width, height);
 	for (let i = 0; i < nb_stars; i++)
 	{

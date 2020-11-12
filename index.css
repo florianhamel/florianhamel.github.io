@@ -1,3 +1,28 @@
 canvas {
-	border-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.test {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
+	width: 100px;
+	height: 100px;
+	background-color: #FFFFFF;
+	transition: width 1s, height 1s, background-color 1s, transform 0.5s,
+	margin-top 1s, margin-left 1s;
+}
+
+.test:hover {
+	background-color: #F2B0F9;
+	width: 200px;
+	height: 200px;
+	transform: rotate(360deg);
+	margin-top: -100px;
+	margin-left: -100px;
 }
