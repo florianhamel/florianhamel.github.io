@@ -1,0 +1,80 @@
+@font-face {
+	font-family: ModeSeven;
+	src: URL("../fonts/Modeseven-L3n5.woff") format("woff"); 
+	src: URL("../fonts/Modeseven-L3n5.ttf") format("truetype");
+}
+
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.menu {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -295px;
+	margin-left: -378px;
+	height: 590px;
+	width: 756px;
+	background-size: 756px 590px;
+	background-image: URL("../images/terminal_40prct.png");
+	font-family: ModeSeven, Helvetica, Arial;
+}
+.transform {
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-o-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+}
+
+.transform-active {
+	top: 0px;
+	left: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	background-image: URL("../images/terminal.png");
+}
+
+.hiden {
+	-webkit-transition: all 1s;  
+	-moz-transition: all 1s;  
+	-o-transition: all 1s;  
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+
+.hiden-active {
+	top: 50% !important;
+	left: 50% !important;
+	opacity: 0;
+}
+
+.button {
+	font-family: ModeSeven, Helvetica, Arial;
+	font-size: 1em;
+	position: absolute;
+	color: #00c200;
+}
+
+.button:hover {
+	font-size: 1.1em;
+}
+
+#cv {
+	top: 75px;
+	left: 100px;
+}
+
+#portfolio {
+	top: 150px;
+	left: 100px;
+}
+
+#about {
+	top: 225px;
+	left: 100px;
+}
