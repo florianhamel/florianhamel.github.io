@@ -17,7 +17,7 @@ $("document").ready(function()
 		$(".buttons").append("<div class=\"button portfolio\">> Portfolio</div>");
 		$(".buttons").append("<div class=\"button about\">> About</div>");
 		$(".buttons").append("<div class=\"button contact\">> Contact</div>");
-	}, 660);
+	}, 650);
 });
 
 $(".buttons").on("click", ".button", function()
@@ -38,9 +38,8 @@ $(".buttons").on("click", ".button", function()
 	{
 		if (elem == 'cv')
 		{
-			$(".show").append("<iframe class=\"cv_pdf\" src=\"../documents/CV_english.pdf\">");
+			$(".show").append("<iframe class=\"cv_pdf\" src=\"../documents/florian_hamel_eng.pdf\">");
 			$(".cv_pdf").css({"height": height});
-
 		}
 	}, 1000);
 });
