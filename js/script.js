@@ -38,7 +38,7 @@ $(".buttons").on("click", ".button", function()
 	{
 		if (elem == 'cv')
 		{
-			$(".show").append("<iframe class=\"cv_pdf\" src=\"../documents/CV_english_pdf\">");
+			$(".show").append("<iframe class=\"cv_pdf\" src=\"../documents/CV_english.pdf\">");
 			$(".cv_pdf").css({"height": height});
 
 		}
