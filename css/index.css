@@ -1,7 +1,7 @@
 @font-face {
-	font-family: ModeSeven;
-	src: URL("../fonts/Modeseven-L3n5.woff") format("woff"); 
-	src: URL("../fonts/Modeseven-L3n5.ttf") format("truetype");
+	font-family: SF-Mono;
+	src: URL("../fonts/SF-Mono/SF-Mono.woff") format("woff"); 
+	src: URL("../fonts/SF-Mono/SF-Mono.ttf") format("truetype");
 }
 
 canvas {
@@ -9,6 +9,16 @@ canvas {
 	top: 0;
 	left: 0;
 	z-index: 0;
+}
+
+.opening {
+	position: absolute;
+	height: 482px;
+	width: 670px;
+	margin-top: 54px;
+	margin-left: 42px;
+	background-size: 756px 590px;
+	background-image: URL("https://media.giphy.com/media/65n8RPEa3r65q/giphy.gif");
 }
 
 .menu {
@@ -19,8 +29,9 @@ canvas {
 	margin-left: -378px;
 	height: 590px;
 	width: 756px;
+	background-color: black;
 	background-size: 756px 590px;
-	background-image: URL("../images/terminal_40prct.png");
+	background-image: URL("../images/terminal_maison.png");
 	font-family: ModeSeven, Helvetica, Arial;
 }
 .transform {
@@ -36,45 +47,59 @@ canvas {
 	left: 0px;
 	margin-top: 0px;
 	margin-left: 0px;
-	background-image: URL("../images/terminal.png");
-}
-
-.hiden {
-	-webkit-transition: all 1s;  
-	-moz-transition: all 1s;  
-	-o-transition: all 1s;  
-	-ms-transition: all 1s;
-	transition: all 1s;
-}
-
-.hiden-active {
-	top: 50% !important;
-	left: 50% !important;
-	opacity: 0;
+	background-image: URL("../images/terminal_maison.png");
 }
 
 .button {
-	font-family: ModeSeven, Helvetica, Arial;
+	font-family: SF-Mono, Helvetica, Arial;
 	font-size: 1em;
 	position: absolute;
 	color: #00c200;
+	transition: font-size 0.1s;
+	cursor: pointer;
 }
 
 .button:hover {
 	font-size: 1.1em;
 }
 
-#cv {
+.hiden {
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+
+.hiden-active {
+	opacity: 0;
+}
+
+.info {
+	font-family: SF-Mono, Helvetica, Arial;
+	font-size: 1em;
+	color: #00c200;
+	position: absolute;
 	top: 75px;
 	left: 100px;
 }
 
-#portfolio {
+.cv {
 	top: 150px;
 	left: 100px;
 }
 
-#about {
+.portfolio {
 	top: 225px;
+	left: 100px;
+}
+
+.about {
+	top: 300px;
+	left: 100px;
+}
+
+.contact {
+	top: 375px;
 	left: 100px;
 }
