@@ -22,11 +22,25 @@ $("document").ready(function()
 
 $(".buttons").on("click", ".button", function()
 {
-	$(".transform").toggleClass("transform-active");
-	$(".transform-active").css({"height": height, "width": width, "background-size": size});
+	$(".extend").toggleClass("extend-active");
+	$(".extend-active").css({"height": "5000px", "width": "5000px", "background-size": "5000px 5000px"});
 	$(".hiden").toggleClass("hiden-active");
 	setTimeout(function()
 	{
 		$(".hiden").remove();
-	}, 500);
+	}, 400);
+	setTimeout(function()
+	{
+		$(".extend").remove();
+	}, 2000);
+	var elem = $(this).attr("class").split(" ").pop();
+	setTimeout(function()
+	{
+		if (elem == 'cv')
+		{
+			$(".show").append("<iframe class=\"cv_pdf\" src=\"../documents/CV_english_pdf\">");
+			$(".cv_pdf").css({"height": height});
+
+		}
+	}, 1000);
 });
