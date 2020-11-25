@@ -4,6 +4,12 @@
 	src: URL("../fonts/SF-Mono/SF-Mono.ttf") format("truetype");
 }
 
+body {
+	font-family: SF-Mono, Helvetica, Arial;
+	color: rgba(0, 194, 0, 1);
+	text-shadow: 0 0 5px rgb(0, 194, 0);
+}
+
 canvas {
 	position: absolute;
 	top: 0;
@@ -29,35 +35,47 @@ canvas {
 	margin-left: -378px;
 	height: 590px;
 	width: 756px;
-	background-color: black;
+	border-radius: 23px;
+	background-color: rgba(0, 0, 0, 0.8);
 	background-size: 756px 590px;
 	background-image: URL("../images/terminal_maison.png");
-	font-family: ModeSeven, Helvetica, Arial;
 }
+
 .extend {
-	-webkit-transition: all 2s;
-	-moz-transition: all 2s;
-	-o-transition: all 2s;
-	-ms-transition: all 2s;
-	transition: all 2s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
 }
 
 .extend-active {
-	background-color: rgba(0, 0, 0, 0);
+	position: absolute;
 	top: -2000px;
 	left: -1500px;
-	margin-top: 0px;
-	margin-left: 0px;
+	margin-top: 0;
+	margin-left: 0;
+	height: 5900px;
+	width: 7560px;
+	border-radius: 23px;
+	background-color: rgba(0, 0, 0, 0);
+	background-size: 7560px 5900px;
 	background-image: URL("../images/terminal_maison.png");
 }
 
-.button {
-	font-family: SF-Mono, Helvetica, Arial;
+.buttons {
 	font-size: 1em;
+}
+
+.button {
 	position: absolute;
-	color: #00c200;
-	transition: font-size 0.1s;
+	font-size: 1em;
 	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .button:hover {
@@ -77,39 +95,163 @@ canvas {
 }
 
 .info {
-	font-family: SF-Mono, Helvetica, Arial;
 	font-size: 1em;
-	color: #00c200;
 	position: absolute;
-	top: 75px;
+	top: 60px;
 	left: 100px;
 }
 
-.cv {
-	top: 150px;
+.cv1 {
+	top: 175px;
 	left: 100px;
 }
 
-.portfolio {
-	top: 225px;
+.portfolio1 {
+	top: 250px;
 	left: 100px;
 }
 
-.about {
-	top: 300px;
+.about1 {
+	top: 325px;
 	left: 100px;
 }
 
-.contact {
-	top: 375px;
+.contact1 {
+	top: 400px;
 	left: 100px;
 }
 
 .cv_pdf {
+	opacity: 0;
 	position: absolute;
-	width: 800px;
+	width: 900px;
+	top: 0px;
 	left: 0;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.appear {
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+
+.appear-active {
+	opacity: 1;
+}
+
+.drop_menu {
+	position: absolute;
+	top: -100px;
+	left: 25px;
+	height: 80px;
+	width: 200px;
+	border: solid;
+	border-color: rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+	background-size: 200px 80px;
+	background-color: rgba(0, 0, 0, 0.8);
+	/* background-image: URL("../images/terminal_maison.png"); */
+	/* color: rgba(255, 255, 255, 0.8); */
+}
+
+.down-active {
+	top: 25px;
+}
+
+.drop {
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.drop-active {
+	height: 325px;
+}
+
+.arrow {
+	position: absolute;
+	left: 80px;
+	font-size: 4em;
+	cursor: default;
+}
+
+.arrow-rotate {
+	transform: rotate(90deg);
+}
+
+.cv2 {
+	opacity: 0;
+	top: 75px;
+	left: -150px;
+}
+
+.portfolio2 {
+	opacity: 0;
+	top: 125px;
+	left: -150px;
+}
+
+.about2 {
+	opacity: 0;
+	top: 175px;
+	left: -150px;
+}
+
+.contact2 {
+	opacity: 0;
+	top: 225px;
+	left: -150px;
+}
+
+.to_menu {
+	opacity: 0;
+	top: 275px;
+	left: -150px;
+}
+
+.drop-button-active {
+	opacity: 1;
+	left: 25px
+}
+
+
+.menu2 {
+	position: absolute;
+	top: -2000px;
+	left: -2820px;
+	margin-top: 0;
+	margin-left: 0;
+	height: 5900px;
+	width: 7560px;
+	border-radius: 23px;
+	background-color: rgba(0, 0, 0, 0);
+	background-size: 7560px 5900px;
+	background-image: URL("../images/terminal_maison.png");
+}
+
+.reduce {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.reduce-active {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -295px;
+	margin-left: -378px;
+	height: 590px;
+	width: 756px;
+	background-color: rgba(0, 0, 0, 0.8);
+	background-size: 756px 590px;
 }

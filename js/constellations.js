@@ -161,11 +161,15 @@ var stars = [];
 for (let i = 0; i < nb_stars; i++)
 	stars.push(new Star());
 
+var grad  = ctx.createLinearGradient(0, 0, width, height);
+grad.addColorStop(0, "rgba(255, 0, 0, 0.9)");
+grad.addColorStop(0.5, "rgba(0, 222, 0, 0.9");
+grad.addColorStop(1, "rgba(0, 0, 255, 0.9)")
 function loop()
 {
 	width = canvas.width = window.innerWidth;
 	height = canvas.height = window.innerHeight;
-	ctx.fillStyle = 'rgb(0, 10, 42)';
+	ctx.fillStyle = grad;
 	ctx.fillRect(0, 0, width, height);
 	for (let i = 0; i < nb_stars; i++)
 	{
