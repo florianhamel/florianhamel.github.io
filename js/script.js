@@ -11,7 +11,7 @@ function terminal_function()
 	{
 		$(".menu2").remove();
 		$(".show").append("<div class=\"menu extend\">");
-		$(".menu").append("<img class=\"opening\" src=\"../images/opening.gif\"></img>");
+		$(".menu").append("<img class=\"opening\" src=\"./images/opening.gif\"></img>");
 		$(".menu").append("<div class=\"buttons hiden\"></div>");
 	}
 	$("document").ready(function()
@@ -52,7 +52,7 @@ function terminal_function()
 		{
 			if (elem == 'cv1')
 			{
-				$(".show").append("<iframe class=\"cv_pdf appear\" src=\"../documents/florian_hamel_eng.pdf?transparent=1#view=Fit\" frameborder=\"0\"></iframe>");
+				$(".show").append("<iframe class=\"cv_pdf appear\" src=\"./documents/florian_hamel_eng.pdf?transparent=1#view=Fit\" frameborder=\"0\"></iframe>");
 				$(".cv_pdf").css({"height": height});
 				$(".cv_pdf").on("load", function(){
 					$(".appear").toggleClass("appear-active");
