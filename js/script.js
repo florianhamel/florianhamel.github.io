@@ -1,18 +1,22 @@
 var		body = document.querySelector("body");
-var		width = body.clientWidth + 'px';
-var		height = body.clientHeight + 'px';
-var		size = width + " " + height;
-/*
-	Animation and appearance of the elements of the menu
-*/
+var		width = body.clientWidth;
+var		height = body.clientHeight;
+var		size = width + height;
+
+$("body").css({"height": height + "px", "width": width + "px"});
+
+/***********************************************************
+ * Animation and appearance of the elements of the menu
+ * MENU
+***********************************************************/
 function terminal_function()
 {
 	if ($(".menu2").length > 0)
 	{
 		$(".menu2").remove();
-		$(".show").append("<div class=\"menu extend\">");
+		$(".show").append("<div class=\"menu\">");
 		$(".menu").append("<img class=\"opening\" src=\"./images/opening.gif\"></img>");
-		$(".menu").append("<div class=\"buttons hiden\"></div>");
+		$(".menu").append("<div class=\"buttons\"></div>");
 	}
 	$("document").ready(function()
 	{
@@ -45,37 +49,53 @@ function terminal_function()
 			$(".buttons").append("<div class=\"button portfolio1\">> Portfolio</div>");
 			$(".buttons").append("<div class=\"button about1\">> About</div>");
 			$(".buttons").append("<div class=\"button contact1\">> Contact</div>");
-		}, 642);
-	});
-
-	/*
-		If an element is clicked
-	*/
-	$(".buttons").on("click", ".button", function()
-	{
-		$(".extend").toggleClass("extend-active");
-		// $(".extend-active").css({"height": "5000px", "width": "5000px", "background-size": "5000px 5000px"});
-		$(".hiden").toggleClass("hiden-active");
+		}, 650);
 		setTimeout(function()
 		{
-			$(".hiden").remove();
+			$(".buttons").toggleClass("appear-active");
+		}, 675);
+	});
+
+	/***********************************************************
+	 * If an element is clicked
+	 * .CLICK() MENU
+	***********************************************************/
+	$(".buttons").on("click", ".button", function()
+	{
+		$(".buttons").toggleClass("hiden-active");
+		$(".menu").toggleClass("extend-active");
+		setTimeout(function()
+		{
+			$(".buttons").remove();
 		}, 400);
 		setTimeout(function()
 		{
-			$(".extend").remove();
-		}, 2000);
-		/*
+			$(".menu").remove();
+		}, 1000);
+
+		/***********************************************************
 			Considering which of the elements have been clicked
-		*/
+			GENERATE ELEMS 
+		***********************************************************/
 		var elem = $(this).attr("class").split(" ").pop();
 		setTimeout(function()
 		{
 			if (elem == 'cv1')
 			{
-				$(".show").append("<iframe class=\"cv_pdf appear\" src=\"./documents/florian_hamel_en.pdf?#view=FitV\" frameborder=\"0\"></iframe>");
-				$(".cv_pdf").css({"height": height});
-				$(".cv_pdf").on("load", function(){
-					$(".appear").toggleClass("appear-active");
+				let perc_img = (height - 30) / 1753;
+				let	height_cv = height - 30;
+				let width_cv = Math.floor(perc_img * 1240);
+				$(".show").append("<div class=\"cv_png one-sec\"></div>");
+				$(".cv_png").css({"height": height_cv + "px", "width": width_cv + "px",
+				"background-size": width_cv + "px" + ' ' + height_cv + "px",
+				"background-image": "URL(\"./documents/florian_hamel_en.png\")"});
+				setTimeout(function()
+				{
+					$(".cv_png").toggleClass("appear-active");
+				}, 100);
+				$(".cv_png").hover(function()
+				{
+					$(".cv_png").toggleClass("scale-active");
 				});
 			}
 			if (elem == 'portfolio1')
@@ -99,11 +119,13 @@ function terminal_function()
 				Linkedin, Github, Mail redirection
 				*/
 			}
-		}, 1000);
-		/*
+		}, 1010);
+
+		/***********************************************************
 			After the page related to the element has been loaded
 			a new mini menu appears
-		*/
+			DROP_MENU
+		***********************************************************/
 		$(".show").append("<div class=\"drop_menu drop\"></div>");
 		$(".drop_menu").append("<div class=\"arrow drop\"><span class=\"drop\">></span></div>")
 		$(".drop_menu").append("<div class=\"cv2 button drop\"><span class=\"drop\">> CV</span></div>");
@@ -116,26 +138,34 @@ function terminal_function()
 		{
 			$(".drop_menu").toggleClass("down-active");
 		}, 1000);
-		/*
-		If the mouse is over the mini terminal a drop menu appears
-		*/
+
+		/***********************************************************
+		 * If the mouse is over the mini terminal
+		 * a drop menu appears
+		 * .HOVER() DROP_MENU
+		************************************************************/
 		$(".drop").hover(function()
 		{
 			$(".arrow").toggleClass("arrow-rotate");
 			$(".drop_menu").toggleClass("drop-active");
 			$(".button").toggleClass("drop-button-active");
 		});
+
+		/***********************************************************
+		 * If a button on the drop menu is clicked
+		 * .CLICK() DROP_MENU
+		***********************************************************/
 		$(".drop_menu").on("click", ".button", function()
 		{
 			if ($(this).attr("class").split(" ")[0] == "to_menu")
 			{
-				$(".show").find(".drop").toggleClass(["drop", "hiden"]);
-				$(".show").find(".hiden").toggleClass("hiden-active");
+				$(".show").find(".drop").toggleClass(["drop", "one-sec"]);
+				$(".show").find(".one-sec").toggleClass("hiden-active");
 				$(".show").find(".appear-active").toggleClass("appear-active");
 				setTimeout(function()
 				{
 					$(".show").children().remove();
-					$(".show").append("<div class=\"menu2 reduce\"></div>");
+					$(".show").append("<div class=\"menu2 half-sec\"></div>");
 				}, 1000);
 				setTimeout(function()
 				{
