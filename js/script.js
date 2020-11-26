@@ -40,7 +40,7 @@ function terminal_function()
 			$(".opening").remove();
 			$(".buttons").append("<div class=\"info\"><p>Connection established: " + time_str + "</p>\
 			<br><p>~ Florian Hamel</p>\
-			<p>I'm a freelance Python and Front end developer based in Paris</p></div>");
+			<p>I'm a freelance Python and Front End developer based in Paris</p></div>");
 			$(".buttons").append("<div class=\"button cv1\">> CV</div>");
 			$(".buttons").append("<div class=\"button portfolio1\">> Portfolio</div>");
 			$(".buttons").append("<div class=\"button about1\">> About</div>");
