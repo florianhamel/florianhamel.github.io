@@ -41,7 +41,7 @@ function terminal_function()
 			$(".buttons").append("<div class=\"info\"><p>Connection established: " + time_str + "</p>\
 			<br><p>~ Florian Hamel</p>\
 			<p>I'm a freelance Python and Front End developer based in Paris</p></div>");
-			$(".buttons").append("<div class=\"button cv1\">> CV</div>");
+			$(".buttons").append("<div class=\"button cv1\">> Resume</div>");
 			$(".buttons").append("<div class=\"button portfolio1\">> Portfolio</div>");
 			$(".buttons").append("<div class=\"button about1\">> About</div>");
 			$(".buttons").append("<div class=\"button contact1\">> Contact</div>");
@@ -54,7 +54,7 @@ function terminal_function()
 	$(".buttons").on("click", ".button", function()
 	{
 		$(".extend").toggleClass("extend-active");
-		$(".extend-active").css({"height": "5000px", "width": "5000px", "background-size": "5000px 5000px"});
+		// $(".extend-active").css({"height": "5000px", "width": "5000px", "background-size": "5000px 5000px"});
 		$(".hiden").toggleClass("hiden-active");
 		setTimeout(function()
 		{
