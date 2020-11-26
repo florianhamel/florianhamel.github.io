@@ -1,7 +1,8 @@
-var		canvas = document.querySelector('canvas');
-var		ctx = canvas.getContext('2d');
-var		width = canvas.width = window.innerWidth;
-var		height = canvas.height = window.innerHeight;
+var		canvas = document.querySelector("canvas");
+var		ctx = canvas.getContext("2d");
+var		body = document.querySelector("body");
+var		width = canvas.width = body.clientWidth
+var		height = canvas.height = body.clientWidth;
 var		nb_stars = 50;
 
 class	Star
@@ -14,9 +15,9 @@ class	Star
 		this.speedX = 0;
 		this.speedY = 0;
 		this.random_velxy();
-		this.color_arc = 'rgba(255, 255, 255, 0.7)';
+		this.color_arc = "rgba(255, 255, 255, 0.7)";
 		// this.random_color_arc();
-		this.color_lines = 'rgb(255, 255, 255, ';
+		this.color_lines = "rgb(255, 255, 255, ";
 		this.radius = 1;
 		// this.random_radius();
 	}
@@ -94,46 +95,46 @@ class	Star
 		
 		if (this.x == 0 && this.y != 0)
 		{
-			this.speedX = Math.floor(Math.random() * 3 + 1);
+			this.speedX = Math.floor(Math.random() * 1.5 + 1);
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedY = Math.floor(Math.random() * 3 + 1) * sign;
+			this.speedY = Math.floor(Math.random() * 1.5 + 1) * sign;
 		}
 		else if (this.x == width && this.y != 0)
 		{
-			this.speedX = -Math.floor(Math.random() * 3 + 1);
+			this.speedX = -Math.floor(Math.random() * 1.5 + 1);
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedY = Math.floor(Math.random() * 3 + 1) * sign;	
+			this.speedY = Math.floor(Math.random() * 1.5 + 1) * sign;	
 		}
 		else if (this.y == 0 && this.x != 0)
 		{
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedX = Math.floor(Math.random() * 3 + 1) * sign;
-			this.speedY = Math.floor(Math.random() * 3 + 1);	
+			this.speedX = Math.floor(Math.random() * 1.5 + 1) * sign;
+			this.speedY = Math.floor(Math.random() * 1.5 + 1);	
 		}
 		else if (this.y == height && this.x != 0)
 		{
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedX = Math.floor(Math.random() * 3 + 1) * sign;
-			this.speedY = -Math.floor(Math.random() * 3 + 1);
+			this.speedX = Math.floor(Math.random() * 1.5 + 1) * sign;
+			this.speedY = -Math.floor(Math.random() * 1.5 + 1);
 		}
 		else if (this.x == 0 && this.y == 0)
 		{
-			this.speedX = Math.floor(Math.random() * 3 + 1);
-			this.speedY = Math.floor(Math.random() * 3 + 1);
+			this.speedX = Math.floor(Math.random() * 1.5 + 1);
+			this.speedY = Math.floor(Math.random() * 1.5 + 1);
 		}
 		else if (this.x == width && this.y == 0)
 		{
-			this.speedX = -Math.floor(Math.random() * 3 + 1);
-			this.speedY = Math.floor(Math.random() * 3 + 1);
+			this.speedX = -Math.floor(Math.random() * 1.5 + 1);
+			this.speedY = Math.floor(Math.random() * 1.5 + 1);
 		}
 		else if (this.y == height && this.x == 0)
 		{
-			this.speedX = Math.floor(Math.random() * 3 + 1);
-			this.speedY = -Math.floor(Math.random() * 3 + 1);
+			this.speedX = Math.floor(Math.random() * 1.5 + 1);
+			this.speedY = -Math.floor(Math.random() * 1.5 + 1);
 		}
 	}
 
@@ -162,9 +163,9 @@ for (let i = 0; i < nb_stars; i++)
 	stars.push(new Star());
 
 var grad  = ctx.createLinearGradient(0, 0, width, height);
-grad.addColorStop(0, "rgba(255, 0, 0, 0.9)");
-grad.addColorStop(0.5, "rgba(0, 222, 0, 0.9");
-grad.addColorStop(1, "rgba(0, 0, 255, 0.9)")
+grad.addColorStop(0, "rgba(242, 175, 242, 1)");
+// grad.addColorStop(0.5, "rgba(0, 194, 0, 0.9");
+grad.addColorStop(0.7, "rgba(242, 242, 175, 1)")
 function loop()
 {
 	width = canvas.width = window.innerWidth;

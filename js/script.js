@@ -1,7 +1,7 @@
-var		width = window.innerWidth + 'px';
-var		height = window.innerHeight + 'px';
+var		body = document.querySelector("body");
+var		width = body.clientWidth + 'px';
+var		height = body.clientHeight + 'px';
 var		size = width + " " + height;
-
 /*
 	Animation and appearance of the elements of the menu
 */
@@ -18,14 +18,34 @@ function terminal_function()
 	{
 		setTimeout(function()
 		{
+
+			var time = new Date();
+			var time_str = "";
+			time_str += ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][time.getDay() - 1] + ' ';
+			time_str += ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][time.getMonth()] + ' ';
+			time_str += time.getDate() + ' ';
+			if (time.getHours() / 10 >= 1)
+				time_str += time.getHours() + ':';
+			else
+				time_str += '0' + time.getHours() + ':';
+			if (time.getMinutes() / 10 >= 1)
+				time_str += time.getMinutes() + ':';
+			else
+				time_str += '0' + time.getMinutes() + ':';
+			if (time.getSeconds() / 10 >= 1)
+				time_str += time.getSeconds();
+			else
+				time_str += '0' + time.getSeconds();
+			console.log(time_str);
 			$(".opening").remove();
-			$(".buttons").append("<div class=\"info\"><p>You logged in Florian Hamel's website\
-			</p><p>I'm a freelance Python and Front end developer</p></div>");
+			$(".buttons").append("<div class=\"info\"><p>Connection established: " + time_str + "</p>\
+			<br><p>~ Florian Hamel</p>\
+			<p>I'm a freelance Python and Front end developer based in Paris</p></div>");
 			$(".buttons").append("<div class=\"button cv1\">> CV</div>");
 			$(".buttons").append("<div class=\"button portfolio1\">> Portfolio</div>");
 			$(".buttons").append("<div class=\"button about1\">> About</div>");
 			$(".buttons").append("<div class=\"button contact1\">> Contact</div>");
-		}, 650);
+		}, 642);
 	});
 
 	/*
@@ -52,11 +72,32 @@ function terminal_function()
 		{
 			if (elem == 'cv1')
 			{
-				$(".show").append("<iframe class=\"cv_pdf appear\" src=\"./documents/florian_hamel_en.pdf?transparent=1#view=Fit\" frameborder=\"0\"></iframe>");
+				$(".show").append("<iframe class=\"cv_pdf appear\" src=\"./documents/florian_hamel_en.pdf?#view=FitV\" frameborder=\"0\"></iframe>");
 				$(".cv_pdf").css({"height": height});
 				$(".cv_pdf").on("load", function(){
 					$(".appear").toggleClass("appear-active");
 				});
+			}
+			if (elem == 'portfolio1')
+			{
+				/*
+				I don't fucking know
+				*/
+			}
+			if (elem == 'about1')
+			{
+				/*
+				A div comes from left with border on top and bot only
+				and leaves going right.
+				Dark background I presume
+				*/
+			}
+			if (elem == 'contact1')
+			{
+				/*
+				Form ?
+				Linkedin, Github, Mail redirection
+				*/
 			}
 		}, 1000);
 		/*
