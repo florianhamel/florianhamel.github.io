@@ -52,15 +52,12 @@ function terminal_function()
 		setTimeout(function()
 		{
 			$(".buttons").toggleClass("appear-active");
-		}, 525);
-		setTimeout(function()
-		{
 			$(".button").hover(function()
 			{
 				$(this).find(".spin").toggleClass("spin-active");
 				$(this).toggleClass("whitenisation");
 			});
-		}, 1600);
+		}, 525);
 	});
 
 	/***********************************************************
