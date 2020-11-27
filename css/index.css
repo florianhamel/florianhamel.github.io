@@ -44,25 +44,23 @@ canvas {
 .opening {
 	position: absolute;
 	opacity: 0.8;
-	height: 654px;
-	width: 894px;
-	margin-top: 73px;
-	margin-left: 53px;
-	background-size: 947px 727px;
+	height: 700px;
+	width: 900px;
+	border-radius: 5px;
 }
 
 .menu {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -400px;
-	margin-left: -500px;
-	height: 800px;
-	width: 1000px;
-	border-radius: 35px;
-	background-color: rgba(0, 0, 0, 0.85);
-	background-size: 1000px 800px;
-	background-image: URL("../images/terminal_maison.png");
+	margin-top: -350px;
+	margin-left: -450px;
+	height: 700px;
+	width: 900px;
+	border: outset 10px;
+	border-color: rgb(222, 222, 222);
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.8);
 
 	-webkit-transition: all 1s;
 	-moz-transition: all 1s;
@@ -74,17 +72,21 @@ canvas {
 .buttons {
 	font-size: 1.2em;
 	opacity: 0;
-
-	-webkit-transition: all 1s;
-	-moz-transition: all 1s;
-	-o-transition: all 1s;
-	-ms-transition: all 1s;
-	transition: all 1s;
 }
 
 .button {
 	position: absolute;
 	cursor: pointer;
+
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.spin {
+	display: inline-block;
 
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
@@ -99,28 +101,28 @@ canvas {
 
 .info {
 	position: absolute;
-	top: 100px;
-	left: 100px;
+	top: 50px;
+	left: 80px;
 }
 
 .cv1 {
 	top: 350px;
-	left: 100px;
+	left: 80px;
 }
 
 .portfolio1 {
 	top: 425px;
-	left: 100px;
+	left: 80px;
 }
 
 .about1 {
 	top: 500px;
-	left: 100px;
+	left: 80px;
 }
 
 .contact1 {
 	top: 575px;
-	left: 100px;
+	left: 80px;
 }
 
 /***
@@ -130,7 +132,7 @@ resizeObserver ?
 .cv_png {
 	opacity: 0;
 	position: fixed;
-	border-radius: 3px;
+	border-radius: 5px;
 	top: 15px;
 	left: 0;
 	right: 0;
@@ -200,24 +202,27 @@ resizeObserver ?
 	margin-left: 0;
 	height: 4000px;
 	width: 5000px;
-	border-radius: 30px;
+	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0);
-	background-size: 7560px 5900px;
-	background-image: URL("../images/terminal_maison.png");
+}
+
+.whitenisation {
+	color: rgb(255, 255, 255);
+	/* text-shadow: 0 0 rgb(0, 194, 0); */
+}
+
+.spin-active {
+	transform: rotate(360deg);
 }
 
 .extend-active {
-	position: absolute;
 	top: -1500px;
 	left: -1500px;
 	margin-top: 0;
 	margin-left: 0;
 	height: 4000px;
 	width: 5000px;
-	border-radius: 30px;
 	background-color: rgba(0, 0, 0, 0);
-	background-size: 7560px 5900px;
-	background-image: URL("../images/terminal_maison.png");
 }
 
 .down-active {
@@ -234,21 +239,16 @@ resizeObserver ?
 }
 
 .reduce-active {
-	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -400px;
-	margin-left: -500px;
-	height: 800px;
-	width: 1000px;
-	border-radius: 30px;
+	margin-top: -350px;
+	margin-left: -450px;
+	height: 700px;
+	width: 900px;
+	border: outset 10px;
+	border-color: rgb(222, 222, 222);
+	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.8);
-	background-size: 1000px 800px;
-	background-image: URL("../images/terminal_maison.png");
-}
-
-.scale-active {
-	transform: scale(1.5);
 }
 
 .hiden-active {

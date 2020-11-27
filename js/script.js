@@ -9,6 +9,7 @@ $("body").css({"height": height + "px", "width": width + "px"});
  * Animation and appearance of the elements of the menu
  * MENU
 ***********************************************************/
+
 function terminal_function()
 {
 	if ($(".menu2").length > 0)
@@ -22,7 +23,6 @@ function terminal_function()
 	{
 		setTimeout(function()
 		{
-
 			var time = new Date();
 			var time_str = "";
 			time_str += ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][time.getDay() - 1] + ' ';
@@ -40,20 +40,27 @@ function terminal_function()
 				time_str += time.getSeconds();
 			else
 				time_str += '0' + time.getSeconds();
-			console.log(time_str);
 			$(".opening").remove();
 			$(".buttons").append("<div class=\"info\"><p>Connection established: " + time_str + "</p>\
-			<br><p>~ Florian Hamel</p>\
+			<br><br><p>HOST: Florian Hamel</p>\
 			<p>I'm a freelance Python and Front End developer based in Paris</p></div>");
-			$(".buttons").append("<div class=\"button cv1\">> Resume</div>");
-			$(".buttons").append("<div class=\"button portfolio1\">> Portfolio</div>");
-			$(".buttons").append("<div class=\"button about1\">> About</div>");
-			$(".buttons").append("<div class=\"button contact1\">> Contact</div>");
-		}, 650);
+			$(".buttons").append("<div class=\"button cv1\"><div class=\"spin\">></div><span> Resume</span></div>");
+			$(".buttons").append("<div class=\"button portfolio1\"><div class=\"spin\">></div><span> Portfolio</span></div>");
+			$(".buttons").append("<div class=\"button about1\"><div class=\"spin\">></div><span> About</span></div>");
+			$(".buttons").append("<div class=\"button contact1\"><div class=\"spin\">></div><span> Contact</span></div>");
+		}, 500);
 		setTimeout(function()
 		{
 			$(".buttons").toggleClass("appear-active");
-		}, 675);
+		}, 525);
+		setTimeout(function()
+		{
+			$(".button").hover(function()
+			{
+				$(this).find(".spin").toggleClass("spin-active");
+				$(this).toggleClass("whitenisation");
+			});
+		}, 1600);
 	});
 
 	/***********************************************************
@@ -85,7 +92,7 @@ function terminal_function()
 				let perc_img = (height - 30) / 1753;
 				let	height_cv = height - 30;
 				let width_cv = Math.floor(perc_img * 1240);
-				$(".show").append("<div class=\"cv_png one-sec\"></div>");
+				$(".show").append("<embed class=\"cv_png one-sec\" src=\"./documents/florian_hamel_en.pdf#view=Fit\"></div>");
 				$(".cv_png").css({"height": height_cv + "px", "width": width_cv + "px",
 				"background-size": width_cv + "px" + ' ' + height_cv + "px",
 				"background-image": "URL(\"./documents/florian_hamel_en.png\")"});
@@ -93,10 +100,6 @@ function terminal_function()
 				{
 					$(".cv_png").toggleClass("appear-active");
 				}, 100);
-				$(".cv_png").hover(function()
-				{
-					$(".cv_png").toggleClass("scale-active");
-				});
 			}
 			if (elem == 'portfolio1')
 			{
