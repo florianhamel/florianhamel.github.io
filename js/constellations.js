@@ -186,3 +186,11 @@ function loop()
 	requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
+
+/** 
+ * IDÉES
+ * Faire partir les constellations depuis la position de la souris ?
+ * Mettre en place l'idée ci-dessus à un autre motif
+ * 
+ * Slow les constellations avec un setTimeout()
+ **/

@@ -166,13 +166,15 @@ function terminal_function()
 			let elem = $(this).attr("class").split(" ")[0];
 			if (elem == "to_menu")
 			{
-				$(".show").find(".drop").toggleClass(["drop", "one-sec"]);
-				$(".show").find(".one-sec").toggleClass("hiden-active");
-				$(".show").find(".appear-active").toggleClass("appear-active");
+				// $(".show").find(".drop").toggleClass(["drop", "one-sec"]);
+				// $(".show").find(".one-sec").toggleClass("hiden-active");
+				// $(".show").find(".appear-active").toggleClass("appear-active");
+				$(".show").toggleClass("one-sec").toggleClass("hiden-active");
 				setTimeout(function()
 				{
 					$(".show").children().remove();
 					$(".show").append("<div class=\"menu2 half-sec\"></div>");
+					$(".show").toggleClass("one-sec").toggleClass("hiden-active")
 				}, 1000);
 				setTimeout(function()
 				{
