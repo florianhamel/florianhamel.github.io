@@ -95,46 +95,46 @@ class	Star
 		
 		if (this.x == 0 && this.y != 0)
 		{
-			this.speedX = Math.floor(Math.random() * 1.5 + 1);
+			this.speedX = Math.floor(Math.random() * 1.2 + 1);
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedY = Math.floor(Math.random() * 1.5 + 1) * sign;
+			this.speedY = Math.floor(Math.random() * 1.2 + 1) * sign;
 		}
 		else if (this.x == width && this.y != 0)
 		{
-			this.speedX = -Math.floor(Math.random() * 1.5 + 1);
+			this.speedX = -Math.floor(Math.random() * 1.2 + 1);
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedY = Math.floor(Math.random() * 1.5 + 1) * sign;	
+			this.speedY = Math.floor(Math.random() * 1.2 + 1) * sign;	
 		}
 		else if (this.y == 0 && this.x != 0)
 		{
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedX = Math.floor(Math.random() * 1.5 + 1) * sign;
-			this.speedY = Math.floor(Math.random() * 1.5 + 1);	
+			this.speedX = Math.floor(Math.random() * 1.2 + 1) * sign;
+			this.speedY = Math.floor(Math.random() * 1.2 + 1);	
 		}
 		else if (this.y == height && this.x != 0)
 		{
 			if (Math.random() < 0.5)
 				sign = -1;
-			this.speedX = Math.floor(Math.random() * 1.5 + 1) * sign;
-			this.speedY = -Math.floor(Math.random() * 1.5 + 1);
+			this.speedX = Math.floor(Math.random() * 1.2 + 1) * sign;
+			this.speedY = -Math.floor(Math.random() * 1.2 + 1);
 		}
 		else if (this.x == 0 && this.y == 0)
 		{
-			this.speedX = Math.floor(Math.random() * 1.5 + 1);
-			this.speedY = Math.floor(Math.random() * 1.5 + 1);
+			this.speedX = Math.floor(Math.random() * 1.2 + 1);
+			this.speedY = Math.floor(Math.random() * 1.2 + 1);
 		}
 		else if (this.x == width && this.y == 0)
 		{
-			this.speedX = -Math.floor(Math.random() * 1.5 + 1);
-			this.speedY = Math.floor(Math.random() * 1.5 + 1);
+			this.speedX = -Math.floor(Math.random() * 1.2 + 1);
+			this.speedY = Math.floor(Math.random() * 1.2 + 1);
 		}
 		else if (this.y == height && this.x == 0)
 		{
-			this.speedX = Math.floor(Math.random() * 1.5 + 1);
-			this.speedY = -Math.floor(Math.random() * 1.5 + 1);
+			this.speedX = Math.floor(Math.random() * 1.2 + 1);
+			this.speedY = -Math.floor(Math.random() * 1.2 + 1);
 		}
 	}
 

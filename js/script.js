@@ -44,10 +44,10 @@ function terminal_function()
 			$(".buttons").append("<div class=\"info\"><p>Connection established: " + time_str + "</p>\
 			<br><br><p>HOST: Florian Hamel</p>\
 			<p>I'm a freelance Python and Front End developer based in Paris</p></div>");
-			$(".buttons").append("<div class=\"button cv1\"><div class=\"spin\">></div><span> Resume</span></div>");
-			$(".buttons").append("<div class=\"button portfolio1\"><div class=\"spin\">></div><span> Portfolio</span></div>");
-			$(".buttons").append("<div class=\"button about1\"><div class=\"spin\">></div><span> About</span></div>");
-			$(".buttons").append("<div class=\"button contact1\"><div class=\"spin\">></div><span> Contact</span></div>");
+			$(".buttons").append("<div class=\"cv1 button\"><div class=\"spin\">></div><span> Resume</span></div>");
+			$(".buttons").append("<div class=\"portfolio1 button\"><div class=\"spin\">></div><span> Portfolio</span></div>");
+			$(".buttons").append("<div class=\"about1 button\"><div class=\"spin\">></div><span> About</span></div>");
+			$(".buttons").append("<div class=\"contact1 button\"><div class=\"spin\">></div><span> Contact</span></div>");
 		}, 500);
 		setTimeout(function()
 		{
@@ -81,7 +81,7 @@ function terminal_function()
 			Considering which of the elements have been clicked
 			GENERATE ELEMS 
 		***********************************************************/
-		var elem = $(this).attr("class").split(" ").pop();
+		let elem = $(this).attr("class").split(" ")[0];
 		setTimeout(function()
 		{
 			if (elem == 'cv1')
@@ -128,11 +128,11 @@ function terminal_function()
 		***********************************************************/
 		$(".show").append("<div class=\"drop_menu drop\"></div>");
 		$(".drop_menu").append("<div class=\"arrow drop\"><span class=\"drop\">></span></div>")
-		$(".drop_menu").append("<div class=\"cv2 button drop\"><span class=\"drop\">> CV</span></div>");
-		$(".drop_menu").append("<div class=\"portfolio2 button drop\"><span class=\"drop\">> Portfolio</span></div>");
-		$(".drop_menu").append("<div class=\"about2 button drop\"><span class=\"drop\">> About</span></div>");
-		$(".drop_menu").append("<div class=\"contact2 button drop\"><span class=\"drop\">> Contact</span></div>");
-		$(".drop_menu").append("<div class=\"to_menu button drop\"><span class=\"drop\">> Menu</span></div>");
+		$(".drop_menu").append("<div class=\"cv2 button drop\"><div class=\"spin\"><span class=\"drop\">></span></div><span class=\"drop\"> Resume</span></div>");
+		$(".drop_menu").append("<div class=\"portfolio2 button drop\"><div class=\"spin\"><span class=\"drop\">></span></div><span class=\"drop\"> Portfolio</span></div>");
+		$(".drop_menu").append("<div class=\"about2 button drop\"><div class=\"spin\"><span class=\"drop\">></span></div><span class=\"drop\"> About</span></div>");
+		$(".drop_menu").append("<div class=\"contact2 button drop\"><div class=\"spin\"><span class=\"drop\">></span></div><span class=\"drop\"> Contact</span></div>");
+		$(".drop_menu").append("<div class=\"to_menu button drop\"><div class=\"spin\"><span class=\"drop\">></span></div><span class=\"drop\"> Menu</span></div>");
 		
 		setTimeout(function()
 		{
@@ -149,15 +149,22 @@ function terminal_function()
 			$(".arrow").toggleClass("arrow-rotate");
 			$(".drop_menu").toggleClass("drop-active");
 			$(".button").toggleClass("drop-button-active");
+			if ($(this).hasClass("button"))
+			{
+				$(this).toggleClass("whitenisation");
+				$(this).find(".spin").toggleClass("spin-active");
+			}
 		});
 
 		/***********************************************************
 		 * If a button on the drop menu is clicked
 		 * .CLICK() DROP_MENU
 		***********************************************************/
+		
 		$(".drop_menu").on("click", ".button", function()
 		{
-			if ($(this).attr("class").split(" ")[0] == "to_menu")
+			let elem = $(this).attr("class").split(" ")[0];
+			if (elem == "to_menu")
 			{
 				$(".show").find(".drop").toggleClass(["drop", "one-sec"]);
 				$(".show").find(".one-sec").toggleClass("hiden-active");
