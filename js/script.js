@@ -3,11 +3,16 @@ var		width = body.clientWidth;
 var		height = body.clientHeight;
 var		size = width + height;
 
-$("body").css({"height": height + "px", "width": width + "px"});
+// $("body").css({"height": height + "px", "width": width + "px"});
+
+/** IDÉES
+* Mettre mon nom + infos en gros au dessus du terminal
+* Le terminal n'est que le menu pour naviguer
+*/
 
 /***********************************************************
- * Animation and appearance of the elements of the menu
- * MENU
+* Animation and appearance of the elements of the menu
+* MENU
 ***********************************************************/
 
 function terminal_function()
@@ -15,17 +20,28 @@ function terminal_function()
 	if ($(".menu2").length > 0)
 	{
 		$(".menu2").remove();
+		$(".show").append("<div class=\"intro\">\
+		<span class=\"name\">Florian Hamel</span></br>\
+		<span class=\"desc\">> Freelance Python and Front End developer based in Paris</span>\
+		</div>");
 		$(".show").append("<div class=\"menu\">");
 		$(".menu").append("<img class=\"opening\" src=\"./images/opening.gif\"></img>");
 		$(".menu").append("<div class=\"buttons\"></div>");
 	}
-	$("document").ready(function()
+	$(document).ready(function()
 	{
+		$(".intro").css({"left": $(".menu").position()["left"] + "px"});
+		$(".intro").toggleClass("appear-active");
+		$(window).on("resize", function()
+		{
+			if ($(".intro").length > 0)
+				$(".intro").css({"left": $(".menu").position()["left"] + "px"});
+		});
 		setTimeout(function()
 		{
 			var time = new Date();
 			var time_str = "";
-			time_str += ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][time.getDay() - 1] + ' ';
+			time_str += ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][time.getDay()] + ' ';
 			time_str += ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][time.getMonth()] + ' ';
 			time_str += time.getDate() + ' ';
 			if (time.getHours() / 10 >= 1)
@@ -41,9 +57,7 @@ function terminal_function()
 			else
 				time_str += '0' + time.getSeconds();
 			$(".opening").remove();
-			$(".buttons").append("<div class=\"info\"><p>Connection established: " + time_str + "</p>\
-			<br><br><p>HOST: Florian Hamel</p>\
-			<p>I'm a freelance Python and Front End developer based in Paris</p></div>");
+			$(".buttons").append("<div class=\"time\"><p>Connection established: " + time_str + "</p>");
 			$(".buttons").append("<div class=\"cv1 button\"><div class=\"spin\">></div><span> Resume</span></div>");
 			$(".buttons").append("<div class=\"portfolio1 button\"><div class=\"spin\">></div><span> Portfolio</span></div>");
 			$(".buttons").append("<div class=\"about1 button\"><div class=\"spin\">></div><span> About</span></div>");
@@ -61,25 +75,22 @@ function terminal_function()
 	});
 
 	/***********************************************************
-	 * If an element is clicked
-	 * .CLICK() MENU
+	* If an element is clicked
+	* .CLICK() MENU
 	***********************************************************/
 	$(".buttons").on("click", ".button", function()
 	{
-		$(".buttons").toggleClass("hiden-active");
+		$(".intro").toggleClass("appear-active");
 		$(".menu").toggleClass("extend-active");
 		setTimeout(function()
 		{
-			$(".buttons").remove();
-		}, 400);
-		setTimeout(function()
-		{
+			$(".intro").remove();
 			$(".menu").remove();
 		}, 1000);
 
 		/***********************************************************
-			Considering which of the elements have been clicked
-			GENERATE ELEMS 
+		* Considering which of the elements have been clicked
+		* GENERATE ELEMS 
 		***********************************************************/
 		let elem = $(this).attr("class").split(" ")[0];
 		setTimeout(function()
@@ -100,31 +111,31 @@ function terminal_function()
 			}
 			if (elem == 'portfolio1')
 			{
-				/*
-				I don't fucking know
+				/**
+				* I don't fucking know
 				*/
 			}
 			if (elem == 'about1')
 			{
-				/*
-				A div comes from left with border on top and bot only
-				and leaves going right.
-				Dark background I presume
+				/**
+				* A div comes from left with border on top and bot only
+				* and leaves going right.
+				* Dark background I presume
 				*/
 			}
 			if (elem == 'contact1')
 			{
-				/*
-				Form ?
-				Linkedin, Github, Mail redirection
+				/**
+				* Form ?
+				* Linkedin, Github, Mail
 				*/
 			}
 		}, 1010);
 
 		/***********************************************************
-			After the page related to the element has been loaded
-			a new mini menu appears
-			DROP_MENU
+		* After the page related to the element has been loaded
+		* a new mini menu appears
+		* DROP_MENU
 		***********************************************************/
 		$(".show").append("<div class=\"drop_menu drop\"></div>");
 		$(".drop_menu").append("<div class=\"arrow drop\"><span class=\"drop\">></span></div>")
@@ -140,9 +151,9 @@ function terminal_function()
 		}, 1000);
 
 		/***********************************************************
-		 * If the mouse is over the mini terminal
-		 * a drop menu appears
-		 * .HOVER() DROP_MENU
+		* If the mouse is over the mini terminal
+		* a drop menu appears
+		* .HOVER() DROP_MENU
 		************************************************************/
 		$(".drop").hover(function()
 		{
@@ -157,8 +168,8 @@ function terminal_function()
 		});
 
 		/***********************************************************
-		 * If a button on the drop menu is clicked
-		 * .CLICK() DROP_MENU
+		* If a button on the drop menu is clicked
+		* .CLICK() DROP_MENU
 		***********************************************************/
 		
 		$(".drop_menu").on("click", ".button", function()
@@ -166,9 +177,6 @@ function terminal_function()
 			let elem = $(this).attr("class").split(" ")[0];
 			if (elem == "to_menu")
 			{
-				// $(".show").find(".drop").toggleClass(["drop", "one-sec"]);
-				// $(".show").find(".one-sec").toggleClass("hiden-active");
-				// $(".show").find(".appear-active").toggleClass("appear-active");
 				$(".show").toggleClass("one-sec").toggleClass("hiden-active");
 				setTimeout(function()
 				{

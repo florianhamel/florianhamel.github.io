@@ -162,10 +162,10 @@ var stars = [];
 for (let i = 0; i < nb_stars; i++)
 	stars.push(new Star());
 
-var grad  = ctx.createLinearGradient(0, 0, width, height);
-grad.addColorStop(0, "rgba(242, 175, 242, 1)");
+var grad  = ctx.createLinearGradient(0, 0, 0, height);
+grad.addColorStop(0, "rgba(100, 194, 100, 1)");
 // grad.addColorStop(0.5, "rgba(0, 194, 0, 0.9");
-grad.addColorStop(0.7, "rgba(242, 242, 175, 1)")
+grad.addColorStop(0.7, "rgba(240, 240, 240, 1)")
 function loop()
 {
 	width = canvas.width = window.innerWidth;
